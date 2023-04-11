@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DogFacts.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:DogFacts.ViewModel"
+             BackgroundColor="Grey">
+
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel x:Name="model"/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Grid ColumnDefinitions="*,*,*"
+          Padding="3,40,3,0"
+          HeightRequest="100"
+          VerticalOptions="Start">
+
+            <ImageButton Source="top_dog_1.png"
+                     Grid.Column="0"
+                     VerticalOptions="Center"
+                     HeightRequest="70"
+                     HorizontalOptions="Center"
+                     Margin="0,30,50,0"
+                     Clicked="ImageButton_Clicked" />
+
+            <Border HeightRequest="100"
+            WidthRequest="200"
+            Stroke="black"
+            StrokeThickness="3"
+            BackgroundColor="Grey"
+            VerticalOptions="StartAndExpand"
+            Grid.Column="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20" />
+                </Border.StrokeShape>
+
+                <Label Text="Dog Facts" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Title"
+               FontAttributes="Bold"
+            TextColor="Black"/>
+            </Border>
+
+            <ImageButton Source="top_dog_2.png"
+                     Grid.Column="2"
+                     VerticalOptions="Center"
+                     HeightRequest="70"
+                     HorizontalOptions="Center"
+                     Margin="50,30,0,0"
+                     Clicked="ImageButton_Clicked_1" />
+        </Grid>
+
+        <StackLayout Padding="10,100,10,10">
+            <Image x:Name="bigImg"
+                   HeightRequest="250"
+                   WidthRequest="250"/>
+
+
+            <Button Margin="0,45,0,0"
+                    Text="New dog fact"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    BackgroundColor="LightGrey"
+                    WidthRequest="330"
+                    HeightRequest="70"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"/>
+
+
+
+
+            <Border Stroke="black"
+                    Margin="0,30,0,0"
+                    BackgroundColor="Grey"
+                    HeightRequest="200"
+                    WidthRequest="350">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30,30,30,30" />
+                </Border.StrokeShape>
+
+                <Label Text="{Binding Fact}"
+                       TextColor="Black"
+                       Margin="5"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+
+            </Border>
+
+
+        </StackLayout>
+    </StackLayout>
+
+    
+
+
+
+
+</ContentPage>
